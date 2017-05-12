@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+int a[1000],n,z=0,i,j=0,q=-1;
+fflush(stdin);
+scanf("%d",&n);
+for(i=0;i<n;i++)
+a[i]=1;
+while(1)
+{
+z=0;
+for(i=0;i<n;i++)
+{
+if(a[i]==1)
+{
+j++;
+}
+if(j==3)
+{
+a[i]=0;
+j=0;
+}
+}
+for(i=0;i<n;i++)
+{
+if(a[i]==1)
+{
+q=i;
+z++;
+}
+//if(z==1)
+//	break;
+}
+if(z==1)
+break;
+}
+printf("%d",q);
+}

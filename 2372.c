@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int a[100],n,i,j,b[100],z,max,q,p,c,e;
+    while(scanf("%d",&n)!=EOF)
+    {
+        max=0;
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+            b[i]=a[i];
+        }
+        for(i=0;i<n;i++)
+        {
+            z=0;
+            while(b[i]>0)
+            {
+                b[i]=b[i]/10;
+                z++;
+            }
+            b[i]=z;
+        }
+        while(1)
+        {
+            for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                q=a[i];
+                if(j==i)
+                continue;
+                p=pow(10.0,b[j]);
+                q=q*p+a[j];
+            if(max<q)
+            {
+                max=q;
+                c=j,e=i;
+            }
+            }
+        }
+        a[c]=a[e]=b[c]=b[e]=0;
+        if(k==)
+        printf("%d\n",max);
+        }
+    }
+}

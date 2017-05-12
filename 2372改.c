@@ -1,0 +1,45 @@
+#include<stdio.h>
+int main()
+{
+    int a[100],b[100][100],z,n,i,max,m,j,tem,tem2;
+    while(scanf("%d",&n)!=EOF)
+    {
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+            b[i][0]=a[i];
+            b[i][1]=i;
+        }
+        max=0;
+        for(i=0;i<n;i++)
+        {
+            if(max<a[i])
+            max=a[i];
+        }
+     for(i=0;i<n;i++)
+     {
+         while(b[i][0]<=max)
+         {
+             b[i][0]=b[i][0]*10;
+         }
+     }
+     for(i=0;i<n-1;i++)
+     {
+         for(j=i+1;j<n-1;j++)
+         {
+             if(b[i][0]>b[j][0])
+             {
+                 tem=b[i][0];
+                 tem2=b[i][1];
+                 b[i][0]=b[j][0];
+                 b[i][1]=b[j][1];
+                 b[j][0]=tem;
+                 b[j][1]=tem2;
+             }
+         }
+     }
+     for(i=0;i<n;i++)
+     printf("%d",a[b[i][1]]);
+     printf("\n");
+    }
+}
